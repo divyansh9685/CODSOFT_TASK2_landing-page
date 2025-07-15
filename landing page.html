@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Modern Landing Page</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(to right, #f0f2f5, #ffffff);
+      color: #333;
+      cursor: url('https://cur.cursors-4u.net/cursors/cur-9/cur821.cur'), auto;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* Navbar */
+    nav {
+      background: white;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      padding: 15px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 999;
+    }
+
+    nav h2 {
+      color: #2575fc;
+      font-weight: 600;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
+
+    nav ul li {
+      font-size: 1rem;
+    }
+
+    nav ul li a:hover {
+      color: #6a11cb;
+    }
+
+    /* Header */
+    header {
+      background: linear-gradient(to right, #6a11cb, #2575fc);
+      color: white;
+      padding: 100px 20px 80px;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 3rem;
+      margin-bottom: 15px;
+    }
+
+    header p {
+      font-size: 1.2rem;
+    }
+
+    /* Sections */
+    section {
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeIn 0.8s ease-out forwards;
+    }
+
+    section:nth-of-type(2) { animation-delay: 0.2s; }
+    section:nth-of-type(3) { animation-delay: 0.4s; }
+    section:nth-of-type(4) { animation-delay: 0.6s; }
+    section:nth-of-type(5) { animation-delay: 0.8s; }
+
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .features {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+      padding: 60px 20px;
+    }
+
+    .feature-card {
+      background: white;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+      border-radius: 15px;
+      padding: 30px;
+      width: 300px;
+      transition: 0.3s;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-10px);
+    }
+
+    .feature-card h3 {
+      color: #2575fc;
+      margin-bottom: 10px;
+    }
+
+    .about, .testimonials, .cta, .contact {
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    .about {
+      background-color: #f7f9fc;
+    }
+
+    .about h2, .testimonials h2, .cta h2, .contact h2 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+
+    .about p, .cta p, .contact p {
+      max-width: 700px;
+      margin: auto;
+      font-size: 1rem;
+      color: #555;
+      line-height: 1.6;
+    }
+
+    .testimonial-card {
+      background: #ffffff;
+      border-radius: 12px;
+      padding: 25px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+      margin: 20px auto;
+      max-width: 600px;
+    }
+
+    .testimonial-card p {
+      font-style: italic;
+      margin-bottom: 10px;
+    }
+
+    .testimonial-card span {
+      font-weight: bold;
+      color: #2575fc;
+    }
+
+    .cta button, .contact button {
+      padding: 14px 30px;
+      background: #2575fc;
+      color: white;
+      border: none;
+      border-radius: 30px;
+      font-weight: 600;
+      font-size: 1rem;
+      cursor: pointer;
+      box-shadow: 0 0 20px rgba(37, 117, 252, 0.4);
+      transition: all 0.3s ease-in-out;
+      margin-top: 20px;
+    }
+
+    .cta button:hover, .contact button:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 30px rgba(37, 117, 252, 0.6), 0 0 40px rgba(106, 17, 203, 0.4);
+    }
+
+    .contact input, .contact textarea {
+      width: 90%;
+      max-width: 500px;
+      margin: 10px auto;
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 1rem;
+    }
+
+    footer {
+      background-color: #222;
+      color: #bbb;
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9rem;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      background: url('https://www.transparenttextures.com/patterns/batthern.png');
+      opacity: 0.06;
+      z-index: -1;
+    }
+
+    /* Sparkle */
+    .trail {
+      position: absolute;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #2575fc;
+      pointer-events: none;
+      animation: sparkle 0.8s forwards;
+    }
+
+    @keyframes sparkle {
+      0% { transform: scale(1); opacity: 1; }
+      100% { transform: scale(2); opacity: 0; }
+    }
+
+    @media (max-width: 768px) {
+      nav ul {
+        display: none;
+      }
+      .feature-card {
+        width: 90%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav>
+    <h2>MySite</h2>
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#features">Features</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Header -->
+  <header>
+    <h1>Welcome to My Creative Space</h1>
+    <p>Practice your web design skills and bring your ideas to life.</p>
+  </header>
+
+  <!-- Features Section -->
+  <section class="features" id="features">
+    <div class="feature-card">
+      <h3>🧱 Layout</h3>
+      <p>Learn to build clean layouts with sections, columns, and spacing.</p>
+    </div>
+    <div class="feature-card">
+      <h3>🎨 Design</h3>
+      <p>Apply colors, fonts, and styling to create beautiful user interfaces.</p>
+    </div>
+    <div class="feature-card">
+      <h3>⚙️ Responsive</h3>
+      <p>Ensure your page looks great on all screen sizes — mobile to desktop.</p>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section class="about" id="about">
+    <h2>About This Project</h2>
+    <p>This landing page is a beginner-friendly web design project using only HTML and CSS. It helps you practice layouts, colors, responsiveness, and creativity. It’s a perfect way to start your journey into the world of web development.</p>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="testimonials">
+    <h2>What Others Say</h2>
+    <div class="testimonial-card">
+      <p>"This was my first HTML project and I loved how easy and creative it was!"</p>
+      <span>– A Beginner Developer</span>
+    </div>
+    <div class="testimonial-card">
+      <p>"It taught me the basics of web design without any pressure. Highly recommend!"</p>
+      <span>– Student</span>
+    </div>
+  </section>
+
+  <!-- Call to Action -->
+  <section class="cta">
+    <h2>Build Your Own Landing Page!</h2>
+    <p>Start your journey with HTML & CSS — it’s simple and fun.</p>
+    <button>Start Now</button>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="contact" id="contact">
+    <h2>Contact Me</h2>
+    <p>Have questions or feedback? Reach out!</p>
+    <form>
+      <input type="text" placeholder="Your Name" required><br>
+      <input type="email" placeholder="Your Email" required><br>
+      <textarea rows="4" placeholder="Your Message" required></textarea><br>
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 | Built with 💙 using HTML & CSS | Designed by Divyansh Pandey</p>
+  </footer>
+
+  <!-- Sparkle Trail Script -->
+  <script>
+    document.addEventListener("mousemove", (e) => {
+      const dot = document.createElement("div");
+      dot.classList.add("trail");
+      dot.style.left = `${e.pageX}px`;
+      dot.style.top = `${e.pageY}px`;
+      document.body.appendChild(dot);
+      setTimeout(() => dot.remove(), 800);
+    });
+  </script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
